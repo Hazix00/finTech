@@ -22,9 +22,9 @@
 - [x] Add "known limitations / what I would do with more time" section.
 
 ## D) Delivery Checklist
-- [ ] Verify app runs with `docker compose up --build`.
-- [ ] Verify local run commands still work for backend and frontend.
-- [ ] Quick manual test of main flow (create -> list -> status update).
+- [x] Verify app runs with `docker compose up --build`.
+- [x] Verify local run commands still work for backend and frontend.
+- [x] Quick manual test of main flow (create -> list -> status update).
 
 ## E) Notes
 - Reference source requirements in `PROJECT_CONTEXT_PDF.md`.

@@ -40,7 +40,7 @@ Elle permet d'explorer et de tester tous les endpoints directement depuis le nav
 ```bash
 cd backend
 npm install
-npm run start:dev
+npm run dev
 ```
 
 Copier `backend/.env.example` vers `.env` et adapter si besoin.
@@ -49,7 +49,7 @@ Copier `backend/.env.example` vers `.env` et adapter si besoin.
 ```bash
 cd frontend
 npm install
-npm run start
+npm run dev
 ```
 
 ## Notes sur les endpoints backend

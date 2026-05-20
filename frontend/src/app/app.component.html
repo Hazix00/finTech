@@ -1,0 +1,12 @@
+<p-toolbar styleClass="top-nav">
+  <ng-template pTemplate="start">
+    <div class="top-nav-actions">
+      <a pButton routerLink="/beneficiary" routerLinkActive="p-button-outlined" label="Beneficiary"></a>
+      <a pButton routerLink="/manager" routerLinkActive="p-button-outlined" label="Manager"></a>
+    </div>
+  </ng-template>
+</p-toolbar>
+
+<p-toast position="top-right"></p-toast>
+
+<router-outlet></router-outlet>

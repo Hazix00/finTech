@@ -1,0 +1,12 @@
+.top-nav {
+  background: #111827;
+}
+
+.top-nav-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.top-nav-actions a {
+  text-decoration: none;
+}

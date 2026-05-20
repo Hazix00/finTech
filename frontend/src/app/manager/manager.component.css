@@ -1,0 +1,21 @@
+.portal-form-field {
+  width: 100%;
+}
+
+.row-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.no-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-actions-label {
+  color: var(--text-color-secondary, #6c757d);
+  display: inline-block;
+}

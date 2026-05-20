@@ -1,0 +1,20 @@
+---
+description: Load project PDF context and todo before implementation
+alwaysApply: true
+---
+
+# Project Context First
+
+Before proposing changes, always read:
+- `PROJECT_CONTEXT_PDF.md`
+- `TODO_LIST.md`
+
+## Required behavior
+- Use `PROJECT_CONTEXT_PDF.md` as the source of truth for scope and constraints.
+- Use `TODO_LIST.md` to prioritize and track remaining work.
+- When a task is completed, update `TODO_LIST.md` checkboxes in the same session.
+- If user asks for something conflicting with the PDF constraints, flag it clearly and suggest compliant options.
+
+## Output expectations
+- Keep implementation aligned with the documented stack and rules.
+- Mention which TODO items were completed in the final response.

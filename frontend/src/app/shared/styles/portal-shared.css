@@ -1,0 +1,47 @@
+.portal-page {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.portal-title,
+.portal-subtitle {
+  margin: 0;
+}
+
+.portal-card {
+  border-radius: 8px;
+}
+
+.portal-form-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1rem;
+}
+
+.portal-label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.portal-full-width {
+  grid-column: 1 / -1;
+}
+
+.portal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.portal-table {
+  margin-top: 1rem;
+}
+
+.portal-action-buttons {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+}

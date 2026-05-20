@@ -1,0 +1,69 @@
+<section class="portal-page">
+  <h1 class="portal-title">Manager Portal</h1>
+
+  <p-card header="Incoming Aid Requests" styleClass="portal-card">
+    <div class="portal-actions" style="margin-bottom: 1rem;">
+      <p-dropdown
+        [options]="statusFilterOptions"
+        [(ngModel)]="statusFilter"
+        name="managerStatusFilter"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Filter by status"
+        styleClass="portal-form-field"
+      ></p-dropdown>
+      <button pButton type="button" label="Apply Filter" (click)="onApplyFilter()"></button>
+    </div>
+
+    <p-table [value]="incomingRequests$ | async" styleClass="portal-table" [loading]="loading">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Beneficiary ID</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-request>
+        <tr>
+          <td>{{ request.id }}</td>
+          <td>{{ request.beneficiaryId }}</td>
+          <td>{{ request.category }}</td>
+          <td>{{ request.amount | currency: 'EUR' : 'symbol' : '1.2-2' }}</td>
+          <td>{{ statusOptions[request.status] || request.status }}</td>
+          <td class="row-actions" [ngClass]="{ 'no-actions': !hasActions(request) }">
+            <ng-container *ngIf="hasActions(request); else noActions">
+              <p-menu
+                #requestActions
+                [model]="rowActionItems"
+                [popup]="true"
+                [appendTo]="'body'"
+                styleClass="request-actions-menu"
+              ></p-menu>
+              <button
+                pButton
+                type="button"
+                icon="pi pi-ellipsis-v"
+                severity="secondary"
+                class="p-button-text menu-trigger-button"
+                aria-label="Request actions"
+                (click)="openActionsMenu(requestActions, $event, request)"
+              ></button>
+            </ng-container>
+            <ng-template #noActions>
+              <span class="no-actions-label">—</span>
+            </ng-template>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-paginator
+      [rows]="limit"
+      [totalRecords]="(totalRecords$ | async) ?? 0"
+      [first]="(page - 1) * limit"
+      (onPageChange)="onPageChange($event)"
+    ></p-paginator>
+  </p-card>
+</section>

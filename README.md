@@ -1,7 +1,7 @@
-# FinTech Aid Requests Starter
+# FinTech Aid Requests — Completed
 
 ## Description
-Ce repository contient un socle minimal runnable avec :
+Ce repository contient un socle complet et fonctionnel avec :
 - un backend NestJS 9 pour gérer les demandes d'aide financières
 - un frontend Angular 15.2 avec deux pages (beneficiary et manager)
 - un environnement Docker Compose avec PostgreSQL
@@ -13,9 +13,22 @@ Ce repository contient un socle minimal runnable avec :
 - Infra: Docker, Docker Compose
 
 ## Choix techniques et compromis
-- Cette livraison correspond à la phase 1 : objectif de mise en place rapide d'un socle fonctionnel avec logique métier minimale.
-- API en REST avec NestJS + TypeORM choisie pour cette phase pour rester simple, explicite et facilement testable.
-- No Hasura (demande explicite) : le projet privilégie ici un contrôle applicatif direct dans le backend.
+
+### Architecture backend
+- API REST avec NestJS + TypeORM : approche explicite, facilement testable et adaptée aux règles métier portées côté applicatif (transitions de statut, limite de 2 demandes actives par bénéficiaire).
+- Sans Hasura (demande explicite) : les contrôles métier restent centralisés dans le backend NestJS, ce qui garantit sécurité et cohérence sans dépendre d'une couche GraphQL auto-générée.
+- Validation des entrées via `class-validator` et DTOs typés pour sécuriser les payloads entrants.
+- Documentation interactive via Swagger UI (`/api-docs`) : tous les endpoints sont explorables et testables directement depuis le navigateur.
+
+### Base de données
+- PostgreSQL via TypeORM avec entités et migrations : choix robuste et standard pour des données relationnelles avec contraintes d'intégrité.
+
+### Frontend
+- Angular 15.2 avec PrimeNG : composants UI prêts à l'emploi (DataTable, Dropdown, Dialog) pour livrer rapidement les deux vues (bénéficiaire et gestionnaire).
+- `BehaviorSubject` en service pour la gestion d'état : suffisant pour ce périmètre (peu d'écrans, flux simples), sans surcharge d'une solution comme NgRx.
+
+### Infra
+- Docker Compose pour orchestrer backend, frontend et PostgreSQL en un seul `docker compose up --build`, sans configuration manuelle de l'environnement.
 
 ## Lancement avec Docker
 Prérequis : Docker Desktop actif.

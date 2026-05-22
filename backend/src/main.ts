@@ -22,9 +22,9 @@ async function bootstrap(): Promise<void> {
   );
 
   app.enableCors({
-    origin: 'http://localhost:4200',
+    origin: process.env.CORS_ORIGIN ?? 'http://localhost:4200',
   });
-  logger.debug('CORS enabled for http://localhost:4200');
+  logger.debug(`CORS enabled for ${process.env.CORS_ORIGIN ?? 'http://localhost:4200'}`);
 
   app.use(
     morgan('dev', {

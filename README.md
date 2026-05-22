@@ -16,7 +16,6 @@ Ce repository contient un socle minimal runnable avec :
 - Cette livraison correspond à la phase 1 : objectif de mise en place rapide d'un socle fonctionnel avec logique métier minimale.
 - API en REST avec NestJS + TypeORM choisie pour cette phase pour rester simple, explicite et facilement testable.
 - No Hasura (demande explicite) : le projet privilégie ici un contrôle applicatif direct dans le backend.
-- Reste à faire sur les règles métier : transitions de statut, plafond de montant, nombre maximum de demandes actives, et tests.
 
 ## Lancement avec Docker
 Prérequis : Docker Desktop actif.
@@ -69,4 +68,4 @@ npm run dev
 
 ### 3) BehaviorSubject vs NgRx/Signals
 - Pour ce scope, `BehaviorSubject` en service est suffisant : peu d'écrans, flux simples, mise en place rapide.
-- Franchement, je n'est pas d'experience avec signals mais NgRx est préférable au cas le projet deviens plus large ou quand il y a une grande collaboration globale entre les modules. Un autre plus de NgRx et le debugging et plus facile via Redux Devtools.
+- Franchement, je n'ai pas d'experience avec signals mais NgRx est préférable au cas le projet deviens plus large ou quand il y a une grande collaboration globale entre les modules. Un autre plus de NgRx et le debugging et plus facile via Redux Devtools.

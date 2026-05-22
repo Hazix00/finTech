@@ -4,6 +4,7 @@ export class CreateAidRequests1747699200000 implements MigrationInterface {
   name = 'CreateAidRequests1747699200000';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
     await queryRunner.query(
       `CREATE TYPE "public"."aid_requests_category_enum" AS ENUM('HOUSING', 'FOOD', 'HEALTH', 'ENERGY', 'OTHER')`,
     );
